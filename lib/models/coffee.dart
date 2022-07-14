@@ -1,5 +1,5 @@
 enum CoffeeType {
-  capuccino,
+  cappuccino,
   coldBrew,
   expresso,
 }
@@ -14,8 +14,9 @@ class Coffee {
   String name;
   String detail;
   String description;
+  String imageUrl;
   CoffeeType type;
-  CoffeeSize size;
+  CoffeeSize? size;
   double value;
 
   Coffee({
@@ -23,7 +24,8 @@ class Coffee {
     required this.detail,
     required this.description,
     required this.type,
-    required this.size,
+    required this.imageUrl,
     required this.value,
+    this.size,
   });
 }
