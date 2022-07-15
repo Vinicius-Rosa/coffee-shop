@@ -1,6 +1,7 @@
 import 'package:coffee_shop/widgets/category_session.dart';
 import 'package:coffee_shop/widgets/home_header.dart';
 import 'package:coffee_shop/widgets/search.dart';
+import 'package:coffee_shop/widgets/special_offer.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -21,6 +22,8 @@ class HomeScreen extends StatelessWidget {
                 const HomeHeader(),
                 const SizedBox(height: 32),
                 const Search(),
+                const SizedBox(height: 32),
+                SpecialOffer(),
                 const SizedBox(height: 32),
                 CategorySession(),
               ],

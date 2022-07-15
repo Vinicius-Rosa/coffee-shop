@@ -35,16 +35,19 @@ class CategorySession extends StatelessWidget {
 
               return GridView.builder(
                 itemCount: coffeListLength,
-                itemBuilder: (context, index) =>
-                    CoffeeItem(coffee: coffeList[index]),
+                itemBuilder: (context, index) => CoffeeItem(
+                  coffee: coffeList[index],
+                ),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   mainAxisSpacing: 16,
                   crossAxisSpacing: 16,
                   childAspectRatio: coffeeConstants.aspectRatio(),
                 ),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 2, vertical: 10),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 2,
+                  vertical: 10,
+                ),
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
               );
