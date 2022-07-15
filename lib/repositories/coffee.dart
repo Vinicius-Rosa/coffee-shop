@@ -27,6 +27,16 @@ class CoffeeRepository {
         type: CoffeeType.cappuccino,
         value: 45,
       ),
+      Coffee(
+        name: "Black Coffee",
+        detail: "Simple",
+        imageUrl:
+            "https://images.unsplash.com/photo-1559496417-e7f25cb247f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
+        description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id ipsum vivamus velit lorem amet. Tincidunt cras volutpat aliquam porttitor molestie. Netus neque, habitasse id vulputate proin cras. Neque, vel duis sit vel pellentesque tempor. A commodo arcu tortor arcu, elit. ",
+        type: CoffeeType.expresso,
+        value: 10,
+      ),
     ]);
 
     return _coffeList;
