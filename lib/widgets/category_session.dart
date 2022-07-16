@@ -2,6 +2,7 @@ import 'package:coffee_shop/constants/coffee.dart';
 import 'package:coffee_shop/models/coffee.dart';
 import 'package:coffee_shop/repositories/coffee.dart';
 import 'package:coffee_shop/widgets/coffee_item.dart';
+import 'package:coffee_shop/widgets/coffee_list.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -30,26 +31,9 @@ class CategorySession extends StatelessWidget {
           future: coffeeRepository.loadCoffes(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
-              final coffeList = snapshot.data;
-              final coffeListLength = coffeList!.length;
-
-              return GridView.builder(
-                itemCount: coffeListLength,
-                itemBuilder: (context, index) => CoffeeItem(
-                  coffee: coffeList[index],
-                ),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 16,
-                  crossAxisSpacing: 16,
-                  childAspectRatio: coffeeConstants.aspectRatio(),
-                ),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 2,
-                  vertical: 10,
-                ),
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
+              return CoffeeList(
+                aspectRatio: coffeeConstants.aspectRatio(),
+                list: snapshot.data!,
               );
             }
 
