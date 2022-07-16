@@ -1,6 +1,7 @@
 import 'package:coffee_shop/constants/coffee.dart';
 import 'package:coffee_shop/models/coffee.dart';
 import 'package:coffee_shop/repositories/coffee.dart';
+import 'package:coffee_shop/widgets/coffee_filters.dart';
 import 'package:coffee_shop/widgets/coffee_item.dart';
 import 'package:coffee_shop/widgets/coffee_list.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,8 @@ class CategorySession extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+        const SizedBox(height: 24),
+        const CoffeeFilters(),
         const SizedBox(height: 14),
         FutureBuilder<List<Coffee>>(
           initialData: const [],
