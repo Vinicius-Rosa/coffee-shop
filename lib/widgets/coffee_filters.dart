@@ -3,14 +3,16 @@ import 'package:coffee_shop/widgets/filter_button.dart';
 import 'package:flutter/material.dart';
 
 class CoffeeFilters extends StatefulWidget {
-  const CoffeeFilters({Key? key}) : super(key: key);
+  CoffeeFilters({required this.onFilter, Key? key}) : super(key: key);
+
+  void Function(String label) onFilter;
 
   @override
   State<CoffeeFilters> createState() => _CoffeeFiltersState();
 }
 
 class _CoffeeFiltersState extends State<CoffeeFilters> {
-  String activeLabel = "Cappuccino";
+  String activeLabel = "";
   List<Filter> filterList = [
     Filter(label: "Cappuccino", assetName: "images/icons/Cappuccino.svg"),
     Filter(label: "Cold Brew", assetName: "images/icons/Cold Brew.svg"),
@@ -18,8 +20,15 @@ class _CoffeeFiltersState extends State<CoffeeFilters> {
   ];
 
   void onSelectItem(String retriveLabel) {
+    String newLabel = retriveLabel;
+
+    if (activeLabel == retriveLabel) {
+      newLabel = "";
+    }
+
     setState(() {
-      activeLabel = retriveLabel;
+      widget.onFilter(newLabel);
+      activeLabel = newLabel;
     });
   }
 

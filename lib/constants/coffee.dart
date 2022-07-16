@@ -1,5 +1,5 @@
 class CoffeeConstants {
-  double cardHeight = 185.5;
+  double cardHeight = 200.5;
   double cardWidth = 120.5;
 
   double aspectRatio() {

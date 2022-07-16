@@ -47,7 +47,8 @@ class CoffeeItem extends StatelessWidget {
                 coffee.detail,
                 style: GoogleFonts.lato(fontSize: 8),
               ),
-              const SizedBox(height: 5),
+              // const SizedBox(height: 5),
+              const Spacer(flex: 1),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
