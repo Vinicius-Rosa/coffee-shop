@@ -82,7 +82,7 @@ class _CategorySessionState extends State<CategorySession> {
             }
 
             return const SizedBox(
-              height: 400,
+              height: 200,
               child: Center(
                 child: CircularProgressIndicator(),
               ),

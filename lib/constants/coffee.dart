@@ -4,6 +4,5 @@ class CoffeeConstants {
 
   double aspectRatio() {
     return cardWidth / cardHeight;
-    // return 2 / 4;
   }
 }
