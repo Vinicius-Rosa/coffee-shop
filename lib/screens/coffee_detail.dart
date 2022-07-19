@@ -1,4 +1,5 @@
 import 'package:coffee_shop/models/coffee.dart';
+import 'package:coffee_shop/utils/currency.dart';
 import 'package:coffee_shop/widgets/size_select.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -116,6 +117,42 @@ class CoffeeDetailScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   Text(coffee.description),
+                  const SizedBox(height: 32),
+                  Container(
+                    width: double.infinity,
+                    height: 64,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF846046),
+                      borderRadius: BorderRadius.circular(34),
+                    ),
+                    child: MaterialButton(
+                      onPressed: () {},
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Add to Cart",
+                                style: GoogleFonts.lato(
+                                  color: const Color(0xFFF8F7FA),
+                                  fontSize: 24,
+                                ),
+                              ),
+                              Text(
+                                Currency().format(coffee.value),
+                                style: GoogleFonts.lato(
+                                  color: const Color(0xFFF8F7FA),
+                                  fontSize: 24,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
