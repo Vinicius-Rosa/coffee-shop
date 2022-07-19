@@ -34,22 +34,14 @@ class _CoffeeFiltersState extends State<CoffeeFilters> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      scrollDirection: Axis.horizontal,
-      child: SizedBox(
-        width: 500,
-        height: 40,
-        child: Row(
-          children: List.generate(
-            filterList.length,
-            (index) => FilterButton(
-              label: filterList[index].label,
-              assetName: filterList[index].assetName,
-              activeItem: activeLabel,
-              onPressed: onSelectItem,
-            ),
-          ),
+    return Row(
+      children: List.generate(
+        filterList.length,
+        (index) => FilterButton(
+          label: filterList[index].label,
+          assetName: filterList[index].assetName,
+          activeItem: activeLabel,
+          onPressed: onSelectItem,
         ),
       ),
     );

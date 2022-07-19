@@ -1,4 +1,5 @@
 import 'package:coffee_shop/models/coffee.dart';
+import 'package:coffee_shop/widgets/size_select.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -103,7 +104,7 @@ class CoffeeDetailScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  const Text("opa"),
+                  SizeSelect(),
                   const SizedBox(height: 16),
                   Text(
                     "Description",

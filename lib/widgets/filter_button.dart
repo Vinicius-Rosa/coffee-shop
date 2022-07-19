@@ -6,15 +6,15 @@ class FilterButton extends StatelessWidget {
   FilterButton({
     required this.onPressed,
     required this.label,
-    required this.assetName,
     required this.activeItem,
+    this.assetName,
     this.semanticsLabel,
     Key? key,
   }) : super(key: key);
 
   void Function(String selectedLabel) onPressed;
   String label;
-  String assetName;
+  String? assetName;
   String activeItem;
   String? semanticsLabel = "";
 
@@ -36,10 +36,24 @@ class FilterButton extends StatelessWidget {
     return const Color(0xFF3A3A3A);
   }
 
+  List<Widget> getIcon() {
+    if (assetName != null) {
+      return [
+        SvgPicture.asset(
+          assetName!,
+          semanticsLabel: semanticsLabel,
+          color: _getTextColor(),
+        ),
+        const SizedBox(width: 8)
+      ];
+    }
+
+    return [];
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 120,
       height: 40,
       decoration: BoxDecoration(
         color: _getBgColor(),
@@ -51,12 +65,7 @@ class FilterButton extends StatelessWidget {
         },
         child: Row(
           children: [
-            SvgPicture.asset(
-              assetName,
-              semanticsLabel: semanticsLabel,
-              color: _getTextColor(),
-            ),
-            const SizedBox(width: 8),
+            ...getIcon(),
             Text(
               label,
               style: GoogleFonts.lato(
