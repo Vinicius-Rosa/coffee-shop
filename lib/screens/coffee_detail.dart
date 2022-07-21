@@ -4,8 +4,32 @@ import 'package:coffee_shop/widgets/size_select.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class CoffeeDetailScreen extends StatelessWidget {
+class CoffeeDetailScreen extends StatefulWidget {
   const CoffeeDetailScreen({Key? key}) : super(key: key);
+
+  @override
+  State<CoffeeDetailScreen> createState() => _CoffeeDetailScreenState();
+}
+
+class _CoffeeDetailScreenState extends State<CoffeeDetailScreen> {
+  double cardYPosition = 0;
+  double opacity = 0;
+
+  void startAnimation() async {
+    await Future.delayed(const Duration(milliseconds: 300));
+
+    setState(() {
+      cardYPosition = -25.0;
+      opacity = 1;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    startAnimation();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,38 +77,45 @@ class CoffeeDetailScreen extends StatelessWidget {
               Positioned(
                 bottom: 0,
                 left: 0,
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: 100,
-                  color: Colors.black26,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 8,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(coffee.name,
-                            style: GoogleFonts.lato(
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            )),
-                        Text(coffee.detail,
-                            style: GoogleFonts.lato(
-                              fontSize: 12,
-                              color: Colors.white,
-                            )),
-                      ],
+                child: AnimatedOpacity(
+                  curve: Curves.easeOut,
+                  duration: const Duration(milliseconds: 200),
+                  opacity: opacity,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 100,
+                    color: Colors.black26,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 8,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(coffee.name,
+                              style: GoogleFonts.lato(
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              )),
+                          Text(coffee.detail,
+                              style: GoogleFonts.lato(
+                                fontSize: 12,
+                                color: Colors.white,
+                              )),
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
             ],
           ),
-          Container(
-            transform: Matrix4.translationValues(0.0, -25.0, 0.0),
+          AnimatedContainer(
+            curve: Curves.easeOut,
+            duration: const Duration(milliseconds: 200),
+            transform: Matrix4.translationValues(0.0, cardYPosition, 0.0),
             width: MediaQuery.of(context).size.width,
             // height: MediaQuery.of(context).size.height,
             decoration: const BoxDecoration(
@@ -108,7 +139,7 @@ class CoffeeDetailScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  SizeSelect(),
+                  const SizeSelect(),
                   const SizedBox(height: 16),
                   Text(
                     "Description",

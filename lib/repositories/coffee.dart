@@ -67,7 +67,7 @@ class CoffeeRepository {
 
   Future<List<Coffee>> loadCoffes() async {
     await Future.delayed(const Duration(seconds: 2));
-    _coffeList.addAll(_repositoryCoffeeList);
+    _coffeList.replaceRange(0, _coffeList.length, _repositoryCoffeeList);
 
     return _coffeList;
   }
