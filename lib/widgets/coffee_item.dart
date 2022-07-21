@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:coffee_shop/constants/coffee.dart';
 import 'package:coffee_shop/utils/currency.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +19,9 @@ class CoffeeItem extends StatelessWidget {
       Navigator.pushNamed(context, "/coffee-detail", arguments: coffee);
     }
 
-    return GestureDetector(
+    debugPrint(coffee.name);
+
+    return InkWell(
       onTap: goToDetails,
       child: Material(
         elevation: 5,
@@ -30,11 +34,14 @@ class CoffeeItem extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(16),
-                child: Image(
-                  image: NetworkImage(coffee.imageUrl),
-                  fit: BoxFit.cover,
-                  height: 140,
-                  width: double.infinity,
+                child: Hero(
+                  tag: "hero_tag-${coffee.imageUrl}",
+                  child: Image(
+                    image: NetworkImage(coffee.imageUrl),
+                    fit: BoxFit.cover,
+                    height: 140,
+                    width: double.infinity,
+                  ),
                 ),
               ),
               const SizedBox(height: 5),

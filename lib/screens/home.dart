@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: 32),
                 SpecialOffer(),
                 const SizedBox(height: 32),
-                CategorySession(),
+                const CategorySession(),
               ],
             ),
           ),

@@ -20,9 +20,12 @@ class CoffeeDetailScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height / 2,
-                child: Image(
-                  image: NetworkImage(coffee.imageUrl),
-                  fit: BoxFit.cover,
+                child: Hero(
+                  tag: "hero_tag-${coffee.imageUrl}",
+                  child: Image(
+                    image: NetworkImage(coffee.imageUrl),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               Positioned(
