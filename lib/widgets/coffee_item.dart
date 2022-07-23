@@ -23,19 +23,19 @@ class CoffeeItem extends StatelessWidget {
 
     return InkWell(
       onTap: goToDetails,
-      child: Material(
-        elevation: 5,
-        borderRadius: BorderRadius.circular(16),
-        color: Colors.white,
-        child: Container(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Hero(
-                  tag: "hero_tag-${coffee.imageUrl}",
+      child: Hero(
+        tag: "hero_tag-${coffee.imageUrl}",
+        child: Material(
+          elevation: 5,
+          borderRadius: BorderRadius.circular(16),
+          color: Colors.white,
+          child: Container(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
                   child: Image(
                     image: NetworkImage(coffee.imageUrl),
                     fit: BoxFit.cover,
@@ -43,39 +43,39 @@ class CoffeeItem extends StatelessWidget {
                     width: double.infinity,
                   ),
                 ),
-              ),
-              const SizedBox(height: 5),
-              Text(
-                coffee.name,
-                style: GoogleFonts.lato(fontSize: 18),
-              ),
-              const SizedBox(height: 2),
-              Text(
-                coffee.detail,
-                style: GoogleFonts.lato(fontSize: 8),
-              ),
-              // const SizedBox(height: 5),
-              const Spacer(flex: 1),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    currency.format(coffee.value),
-                    style: GoogleFonts.lato(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                const SizedBox(height: 5),
+                Text(
+                  coffee.name,
+                  style: GoogleFonts.lato(fontSize: 18),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  coffee.detail,
+                  style: GoogleFonts.lato(fontSize: 8),
+                ),
+                // const SizedBox(height: 5),
+                const Spacer(flex: 1),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      currency.format(coffee.value),
+                      style: GoogleFonts.lato(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF846046),
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    child: const Icon(Icons.add, color: Colors.white),
-                  )
-                ],
-              )
-            ],
+                    Container(
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF846046),
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: const Icon(Icons.add, color: Colors.white),
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
