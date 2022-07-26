@@ -1,3 +1,4 @@
+import 'package:coffee_shop/routes/logged_stack.dart';
 import 'package:coffee_shop/screens/screens.dart';
 import 'package:flutter/material.dart';
 
@@ -17,10 +18,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.brown,
       ),
-      initialRoute: "/onboarding",
+      initialRoute: "/",
       routes: {
         "/onboarding": (context) => const OnboardingScreen(),
-        "/home": (context) => const HomeScreen(),
+        "/home": (context) => const LoggedStack(),
         "/coffee-detail": (context) => const CoffeeDetailScreen(),
       },
     );
